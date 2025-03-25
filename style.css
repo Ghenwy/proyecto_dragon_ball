@@ -123,7 +123,7 @@ main::before {
   border-radius: 20px;
   margin-bottom: 2rem;
   transition: all 0.5s ease;
-  animation: float 6s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
   filter: drop-shadow(0 0 15px rgba(255, 107, 0, 0.7));
 }
 
@@ -132,9 +132,15 @@ main::before {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px) scale(1.05); /* Increased movement and added scaling */
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }
 
 .home h2 {
