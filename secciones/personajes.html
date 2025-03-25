@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personajes – Dragon Ball</title>
+  <link rel="stylesheet" href="../global.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .personajes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    .card {
+      width: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      background: linear-gradient(45deg, #FF6B00, #00BFFF, #FF6B00);
+      z-index: -2;
+      border-radius: 18px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .card:hover::before {
+      opacity: 1;
+      animation: rotate 3s linear infinite;
+    }
+    
+    @keyframes rotate {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+    
+    .card img {
+      height: 280px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 20px;
+      transition: all 0.5s ease;
+    }
+    
+    .card:hover img {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.7));
+    }
+    
+    .card ul li::before {
+      content: "⚡ ";
+      color: #FF6B00;
+    }
+    
+    .card ul {
+      list-style: none;
+      padding-left: 1rem;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>👥 Personajes de Dragon Ball</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">🏠 Inicio</a></li>
+      <li><a href="personajes.html">👥 Personajes</a></li>
+      <li><a href="sagas.html">🗂 Sagas</a></li>
+      <li><a href="Historia.html">📜 Historia</a></li>
+      <li><a href="Curiosidades.html">❓ Curiosidades</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="personajes-grid" id="grid"></div>
+  </main>
+  <script src="../script.js"></script>
+  <script>
+    const personajes = [
+      {
+        nombre: "Goku",
+        raza: "Saiyan",
+        saga: "Todas",
+        imagen: "../assets/img/Goku-y-Nube-Voladora-png.png",
+        transformaciones: [
+          "Kaio-Ken", "Super Saiyan", "SSJ2", "SSJ3",
+          "Super Saiyan God", "SSGSS (Blue)", "Ultra Instinct"
+        ],
+        curiosidades: [
+          "Su nombre real es Kakarotto",
+          "Fue enviado a la Tierra para destruirla",
+          "Aprendió a conducir en un capítulo de relleno"
+        ]
+      },
+      {
+        nombre: "Vegeta",
+        raza: "Saiyan",
+        saga: "Z, Super",
+        imagen: "../assets/img/vegeta.png",
+        transformaciones: [
+          "Super Saiyan", "SSJ2", "Super Saiyan God",
+          "SSGSS", "Ultra Ego"
+        ],
+        curiosidades: [
+          "Príncipe de los Saiyans",
+          "Jamás admitió que Goku es más fuerte",
+          "Su familia son la realeza Saiyan"
+        ]
+      },
+      {
+        nombre: "Gohan",
+        raza: "Híbrido Saiyan-Humano",
+        saga: "Z, Super",
+        imagen: "../assets/img/gohan.png",
+        transformaciones: [
+          "Super Saiyan", "SSJ2", "Ultimate Gohan", "Beast Gohan"
+        ],
+        curiosidades: [
+          "Fue el primero en alcanzar el SSJ2",
+          "Derrotó a Cell siendo solo un niño",
+          "Prefiere ser académico que luchador"
+        ]
+      },
+      {
+        nombre: "Piccolo",
+        raza: "Namekiano",
+        saga: "Z, Super",
+        imagen: "../assets/img/picolo.png",
+        transformaciones: [
+          "Namekian Fusion", "Orange Piccolo"
+        ],
+        curiosidades: [
+          "Fue enemigo de Goku al principio",
+          "Actúa como padre de Gohan",
+          "Es uno de los más sabios del grupo"
+        ]
+      },
+      {
+        nombre: "Trunks",
+        raza: "Híbrido Saiyan-Humano",
+        saga: "Z, Super",
+        imagen: "../assets/img/trunks.png",
+        transformaciones: [
+          "Super Saiyan", "SSJ Rage"
+        ],
+        curiosidades: [
+          "Viene de un futuro apocalíptico",
+          "Mató a Freezer con su espada",
+          "Es hijo de Vegeta y Bulma"
+        ]
+      },
+      {
+        nombre: "Freezer",
+        raza: "Changlong",
+        saga: "Z, Super",
+        imagen: "../assets/img/freezer.png",
+        transformaciones: [
+          "Primera Forma", "Segunda Forma", "Tercera Forma", "Forma Final", "Golden Freezer"
+        ],
+        curiosidades: [
+          "Destruyó el planeta Vegeta",
+          "Temido en todo el universo",
+          "Fue resucitado para el Torneo de Poder"
+        ]
+      },
+      {
+        nombre: "Cell",
+        raza: "Bioandroide",
+        saga: "Z",
+        imagen: "../assets/img/cell.png",
+        transformaciones: [
+          "Forma Imperfecta", "Semi-Perfecta", "Perfecta", "Super Perfecta"
+        ],
+        curiosidades: [
+          "Creado con células de los mejores guerreros",
+          "Organizó los Cell Games como torneo",
+          "Puede regenerar partes de su cuerpo"
+        ]
+      },
+      {
+        nombre: "Majin Buu",
+        raza: "Majin",
+        saga: "Z",
+        imagen: "../assets/img/majin_buu.png",
+        transformaciones: [
+          "Fat Buu", "Evil Buu", "Super Buu", "Kid Buu"
+        ],
+        curiosidades: [
+          "Convierte a sus víctimas en dulces",
+          "Tiene millones de años de antigüedad",
+          "Su versión buena se hizo amigo de Mr. Satán"
+        ]
+      },
+      {
+        nombre: "Bulma",
+        raza: "Humana",
+        saga: "Todas",
+        imagen: "../assets/img/bulma.png",
+        transformaciones: [
+          "No posee transformaciones"
+        ],
+        curiosidades: [
+          "Inventora genio de Capsule Corp",
+          "Fue quien encontró a Goku al inicio de la serie",
+          "Creó la máquina del tiempo en el futuro alternativo"
+        ]
+      },
+      {
+        nombre: "Krillin",
+        raza: "Humano",
+        saga: "Dragon Ball, Z, Super",
+        imagen: "../assets/img/krillin.png",
+        transformaciones: [
+          "No posee transformaciones"
+        ],
+        curiosidades: [
+          "Mejor amigo de Goku desde la infancia",
+          "Ha muerto y revivido más veces que cualquier personaje",
+          "Se casó con la Androide 18"
+        ]
+      },
+      {
+        nombre: "Androide 18",
+        raza: "Androide",
+        saga: "Z, Super",
+        imagen: "../assets/img/androide18.png",
+        transformaciones: [
+          "No posee transformaciones"
+        ],
+        curiosidades: [
+          "Su nombre real es Lazuli",
+          "Fue modificada por el Dr. Gero",
+          "Tiene una hija llamada Marron con Krillin"
+        ]
+      },
+      {
+        nombre: "Beerus",
+        raza: "Dios de la Destrucción",
+        saga: "Super",
+        imagen: "../assets/img/beerus.png",
+        transformaciones: [
+          "No posee transformaciones"
+        ],
+        curiosidades: [
+          "Dios de la Destrucción del Universo 7",
+          "Adora la comida terrícola",
+          "Durmió durante 39 años antes de conocer a Goku"
+        ]
+      },
+      {
+        nombre: "Whis",
+        raza: "Ángel",
+        saga: "Super",
+        imagen: "../assets/img/whis.png",
+        transformaciones: [
+          "No posee transformaciones"
+        ],
+        curiosidades: [
+          "Maestro y asistente de Beerus",
+          "Puede retroceder el tiempo hasta 3 minutos",
+          "Es el ser más poderoso del Universo 7"
+        ]
+      },
+      {
+        nombre: "Jiren",
+        raza: "Desconocida",
+        saga: "Super",
+        imagen: "../assets/img/jiren.png",
+        transformaciones: [
+          "Modo Poder Completo"
+        ],
+        curiosidades: [
+          "El guerrero más fuerte del Universo 11",
+          "Superó el poder de un Dios de la Destrucción",
+          "Su familia fue asesinada cuando era niño"
+        ]
+      },
+      {
+        nombre: "Yamcha",
+        raza: "Humano",
+        saga: "Dragon Ball, Z, Super",
+        imagen: "../assets/img/yamcha.png",
+        transformaciones: [
+          "No posee transformaciones"
+        ],
+        curiosidades: [
+          "Comenzó como un bandido del desierto",
+          "Fue novio de Bulma antes que Vegeta",
+          "Famoso por su pose de muerte"
+        ]
+      }
+    ];
+
+    const grid = document.getElementById("grid");
+
+    // Función para crear las tarjetas de personajes con animación
+    function createCharacterCards() {
+      grid.innerHTML = '';
+      
+      personajes.forEach((p, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        
+        // Añadir contenido a la tarjeta
+        card.innerHTML = `
+          <img src="${p.imagen}" alt="${p.nombre}" />
+          <h3>${p.nombre}</h3>
+          <p><strong>Raza:</strong> ${p.raza}</p>
+          <p><strong>Saga:</strong> ${p.saga}</p>
+          <p><strong>Transformaciones:</strong></p>
+          <ul>${p.transformaciones.map(t => `<li>${t}</li>`).join("")}</ul>
+          <p><strong>Curiosidades:</strong></p>
+          <ul>${p.curiosidades.map(c => `<li>${c}</li>`).join("")}</ul>
+        `;
+        
+        // Aplicar estilo inicial para la animación
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        // Añadir la tarjeta al grid
+        grid.appendChild(card);
+        
+        // Animar la aparición de la tarjeta con un retraso basado en el índice
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 100 + (index * 150));
+      });
+    }
+    
+    // Crear las tarjetas cuando el DOM esté cargado
+    createCharacterCards();
+  </script>
+</body>
+</html>

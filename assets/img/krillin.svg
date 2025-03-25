@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Krillin SVG -->
+  <circle cx="250" cy="150" r="100" fill="#FFD700" stroke="#000" stroke-width="3"/>
+  <circle cx="250" cy="150" r="90" fill="#FFA500" stroke="#000" stroke-width="2"/>
+  <!-- Cara -->
+  <circle cx="250" cy="150" r="80" fill="#FFC0CB" stroke="#000" stroke-width="2"/>
+  <!-- Ojos -->
+  <ellipse cx="220" cy="140" rx="10" ry="15" fill="#FFF" stroke="#000" stroke-width="2"/>
+  <ellipse cx="280" cy="140" rx="10" ry="15" fill="#FFF" stroke="#000" stroke-width="2"/>
+  <circle cx="220" cy="140" r="5" fill="#000"/>
+  <circle cx="280" cy="140" r="5" fill="#000"/>
+  <!-- Nariz -->
+  <circle cx="250" cy="160" r="5" fill="#000"/>
+  <!-- Boca -->
+  <path d="M230 180 Q250 190 270 180" fill="none" stroke="#000" stroke-width="2"/>
+  <!-- Puntos en la frente -->
+  <circle cx="230" cy="110" r="3" fill="#000"/>
+  <circle cx="250" cy="105" r="3" fill="#000"/>
+  <circle cx="270" cy="110" r="3" fill="#000"/>
+  <circle cx="240" cy="120" r="3" fill="#000"/>
+  <circle cx="260" cy="120" r="3" fill="#000"/>
+  <circle cx="250" cy="130" r="3" fill="#000"/>
+  <!-- Cuerpo -->
+  <rect x="200" y="250" width="100" height="150" fill="#FF8C00" stroke="#000" stroke-width="3"/>
+  <!-- Gi naranja -->
+  <path d="M200 250 L180 350 L200 400 L250 420 L300 400 L320 350 L300 250 Z" fill="#FF8C00" stroke="#000" stroke-width="3"/>
+  <!-- Cinturón -->
+  <rect x="180" y="320" width="140" height="20" fill="#0000FF" stroke="#000" stroke-width="2"/>
+  <!-- Brazos -->
+  <path d="M200 250 L150 350" fill="none" stroke="#FFC0CB" stroke-width="30" stroke-linecap="round"/>
+  <path d="M300 250 L350 350" fill="none" stroke="#FFC0CB" stroke-width="30" stroke-linecap="round"/>
+  <!-- Manos -->
+  <circle cx="150" cy="350" r="20" fill="#FFC0CB" stroke="#000" stroke-width="2"/>
+  <circle cx="350" cy="350" r="20" fill="#FFC0CB" stroke="#000" stroke-width="2"/>
+  <!-- Piernas -->
+  <path d="M220 400 L200 480" fill="none" stroke="#0000FF" stroke-width="30" stroke-linecap="round"/>
+  <path d="M280 400 L300 480" fill="none" stroke="#0000FF" stroke-width="30" stroke-linecap="round"/>
+  <!-- Zapatos -->
+  <ellipse cx="200" cy="490" rx="25" ry="15" fill="#FF0000" stroke="#000" stroke-width="2"/>
+  <ellipse cx="300" cy="490" rx="25" ry="15" fill="#FF0000" stroke="#000" stroke-width="2"/>
+</svg>

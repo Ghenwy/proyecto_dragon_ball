@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagas de Dragon Ball</title>
+  <link rel="stylesheet" href="../global.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .sagas-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    .saga-card {
+      background: rgba(26, 26, 26, 0.8);
+      border: 2px solid #ff6600;
+      border-radius: 15px;
+      width: 300px;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+    
+    .saga-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 107, 0, 0.6), 0 0 30px rgba(0, 191, 255, 0.3);
+    }
+    
+    .saga-card h2 {
+      color: #00bfff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    
+    .saga-card h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #ff6600, transparent);
+    }
+    
+    .saga-card ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+    
+    .saga-card li::before {
+      content: '🔥 ';
+      color: #ff6600;
+    }
+    .saga-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      background: #00bfff;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      width: 90%;
+      max-width: 800px;
+      background: #111;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: left;
+      color: #fff;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🗂 Sagas de Dragon Ball</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">🏠 Inicio</a></li>
+      <li><a href="personajes.html">👥 Personajes</a></li>
+      <li><a href="sagas.html">🗂 Sagas</a></li>
+      <li><a href="Historia.html">📜 Historia</a></li>
+      <li><a href="Curiosidades.html">❓ Curiosidades</a></li>
+    </ul>
+  </nav>
+  <script src="../script.js"></script>
+  <div class="sagas-container">
+    <div class="saga-card">
+      <h2>Dragon Ball</h2>
+      <p>La historia comienza con Goku de niño conociendo a Bulma. Participa en varios Torneos de Artes Marciales, enfrenta a la Patrulla Roja y a Piccolo Daimaō. Termina cuando Goku vence a Piccolo Jr. en el torneo.</p>
+      <ul>
+        <li>Emperador Pilaf</li>
+        <li>Torneo de Artes Marciales</li>
+        <li>Patrulla Roja</li>
+        <li>Piccolo Daimaō</li>
+      </ul>
+      <button class="btn" onclick="openModal('dragonball')">Ver más</button>
+    </div>
+
+    <div class="saga-card">
+      <h2>Dragon Ball Z</h2>
+      <p>Goku descubre que es un Saiyan y muere luchando contra Raditz. Gohan se entrena y viajan a Namek. Luego enfrentan a los androides, Cell y Majin Buu. Termina con la derrota de Buu por Goku con la Genkidama.</p>
+      <ul>
+        <li>Saiyans</li>
+        <li>Namek y Freezer</li>
+        <li>Cell</li>
+        <li>Majin Buu</li>
+      </ul>
+      <button class="btn" onclick="openModal('dbz')">Ver más</button>
+    </div>
+
+    <div class="saga-card">
+      <h2>Dragon Ball Z: Las Películas</h2>
+      <p>Películas alternas al canon como Broly, Janemba, Bojack y más. Suelen ser historias cortas, con enemigos poderosos y transformaciones impresionantes.</p>
+      <ul>
+        <li>Broly</li>
+        <li>Bojack</li>
+        <li>Janemba</li>
+        <li>Cooler</li>
+      </ul>
+      <button class="btn" onclick="openModal('peliculas')">Ver más</button>
+    </div>
+
+    <div class="saga-card">
+      <h2>Dragon Ball GT</h2>
+      <p>No es canon. Goku vuelve a ser niño. Viajan por el espacio por las Esferas de Dragón Oscuras. Se enfrentan a Baby, Super C-17 y los Dragones Oscuros. Termina con la partida de Goku con Shenron.</p>
+      <ul>
+        <li>Búsqueda de esferas negras</li>
+        <li>Baby</li>
+        <li>Super C-17</li>
+        <li>Dragones Oscuros</li>
+      </ul>
+      <button class="btn" onclick="openModal('gt')">Ver más</button>
+    </div>
+
+    <div class="saga-card">
+      <h2>Dragon Ball Super</h2>
+      <p>Secuela canon. Comienza tras la derrota de Buu. Goku alcanza niveles divinos como Super Saiyan God y Ultra Instinct. Participan en el Torneo del Poder y enfrentan a Moro y Granolah en el manga.</p>
+      <ul>
+        <li>Dios de la Destrucción</li>
+        <li>Golden Freezer</li>
+        <li>Torneo del Poder</li>
+        <li>Broly</li>
+      </ul>
+      <button class="btn" onclick="openModal('super')">Ver más</button>
+    </div>
+  </div>
+
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modalText"></div>
+    </div>
+  </div>
+
+  <script>
+    const modalContent = {
+      dragonball: `<h2>Dragon Ball</h2>
+      <p>La saga de Dragon Ball comienza con el encuentro entre Goku, un niño con cola de mono, y Bulma, una joven en búsqueda de las Esferas del Dragón. A partir de ahí, Goku vive múltiples aventuras: derrota al ejército de la Patrulla Roja, participa en varios Torneos de Artes Marciales donde conoce a personajes clave como Krilin, Yamcha y Ten Shin Han. El clímax llega con el enfrentamiento contra Piccolo Daimaō y posteriormente su hijo, Piccolo Jr., a quien derrota en el Torneo Mundial de Artes Marciales, consolidándose como el mejor luchador del mundo.</p>
+      <p><strong>Curiosidad:</strong> El tono general es más cómico e infantil, con combates menos destructivos que en sus secuelas. Fue Toriyama quien transformó el tono de la serie en Dragon Ball Z.</p>`,
+
+      dbz: `<h2>Dragon Ball Z</h2>
+      <p>Inicia cuando Goku se entera de que es un Saiyan llamado Kakarotto. Enfrenta a Raditz sacrificando su vida. Vegeta y Nappa llegan a la Tierra y Goku vuelve tras entrenar en el Otro Mundo. Posteriormente viajan a Namek, donde luchan contra Freezer, quien destruyó su planeta natal. Goku se transforma en Super Saiyan. Después aparecen los Androides y Cell, que es derrotado por Gohan. La saga culmina con Majin Buu, una amenaza mágica que es finalmente destruido por Goku usando la Genkidama con la energía de la humanidad.</p>
+      <p><strong>Curiosidad:</strong> El final del manga y anime coincide, pero hay diferencias menores en la duración de las peleas y contenido de relleno como la saga de Garlic Jr.</p>`,
+
+      peliculas: `<h2>Películas de Dragon Ball Z</h2>
+      <p>Las películas de DBZ no siguen el canon oficial, pero presentan enemigos memorables. Entre ellas están las tres apariciones de Broly, el regreso de Cooler (hermano de Freezer), Bojack el conquistador galáctico, Janemba el demonio del infierno, y Tapion con su ocarina mágica. Estas películas tienen tramas cortas y combates espectaculares, donde los héroes suelen salvar el mundo en eventos autoconclusivos.</p>
+      <p><strong>Curiosidad:</strong> Aunque no son canon, muchos fans consideran a Broly un personaje icónico. El nuevo Broly en Dragon Ball Super sí es oficial.</p>`,
+
+      gt: `<h2>Dragon Ball GT</h2>
+      <p>Dragon Ball GT comienza cuando Goku es convertido en niño por el deseo accidental de Pilaf. Viaja por el espacio con Pan y Trunks en busca de las Esferas de Dragón Oscuras. Al regresar, se enfrenta a Baby, un tsufur que controla cuerpos y desea venganza contra los Saiyans. Luego aparece Super C-17, fusión de dos androides. Finalmente, los Dragones Oscuros nacen de los deseos acumulados. Goku derrota al último, Omega Shenron, y se despide viajando con Shenron.</p>
+      <p><strong>Curiosidad:</strong> GT no fue escrito por Toriyama. Aun así, diseñó personajes como Baby y los dragones. Su tono es más oscuro y experimental.</p>`,
+
+      super: `<h2>Dragon Ball Super</h2>
+      <p>Dragon Ball Super inicia con Goku enfrentando a Beerus, el Dios de la Destrucción. Obtiene la forma Super Saiyan God. Luego, Freezer regresa con una nueva forma dorada. Se celebra el Torneo entre Universos, y Goku alcanza el Ultra Instinto enfrentando a Jiren. Posteriormente, en la película canon, Broly reaparece con un nuevo origen. En el manga, se desarrollan arcos adicionales como Moro, un devorador de energía mágica, y Granolah, un sobreviviente con sed de venganza.</p>
+      <p><strong>Curiosidad:</strong> El anime y el manga difieren mucho en arcos posteriores al Torneo del Poder. El anime termina con la película de Broly, mientras que el manga sigue avanzando.</p>`
+    };
+
+    function openModal(key) {
+      const modal = document.getElementById('videoModal');
+      const modalText = document.getElementById('modalText');
+      modalText.innerHTML = modalContent[key];
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('videoModal');
+      modal.style.display = 'none';
+    }
+
+    // Cerrar el modal al hacer clic fuera del contenido
+    document.getElementById('videoModal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

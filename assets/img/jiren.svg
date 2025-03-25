@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Jiren - Dragon Ball Super -->
+  <defs>
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B0000" />
+      <stop offset="100%" stop-color="#FF4500" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Cabeza -->
+  <ellipse cx="250" cy="150" rx="100" ry="110" fill="#D3D3D3" />
+  
+  <!-- Cara -->
+  <path d="M250 200 Q250 230 250 260" stroke="#000" stroke-width="2" fill="none" />
+  
+  <!-- Ojos -->
+  <ellipse cx="220" cy="140" rx="15" ry="8" fill="#000" />
+  <ellipse cx="280" cy="140" rx="15" ry="8" fill="#000" />
+  
+  <!-- Cejas -->
+  <path d="M205 125 Q220 115 235 125" stroke="#000" stroke-width="4" fill="none" />
+  <path d="M265 125 Q280 115 295 125" stroke="#000" stroke-width="4" fill="none" />
+  
+  <!-- Cuerpo -->
+  <path d="M190 260 Q250 280 310 260 L330 450 Q250 470 170 450 Z" fill="url(#bodyGradient)" />
+  
+  <!-- Cuello -->
+  <path d="M220 210 Q250 220 280 210 L290 260 Q250 270 210 260 Z" fill="#D3D3D3" />
+  
+  <!-- Brazos -->
+  <path d="M190 260 Q160 300 140 400" stroke="#8B0000" stroke-width="60" fill="none" />
+  <path d="M310 260 Q340 300 360 400" stroke="#8B0000" stroke-width="60" fill="none" />
+  
+  <!-- Manos -->
+  <circle cx="140" cy="400" r="30" fill="#D3D3D3" />
+  <circle cx="360" cy="400" r="30" fill="#D3D3D3" />
+  
+  <!-- Detalles del traje -->
+  <path d="M220 300 Q250 310 280 300 L290 380 Q250 390 210 380 Z" fill="#8B0000" />
+  
+  <!-- Aura de poder -->
+  <ellipse cx="250" cy="250" rx="180" ry="220" fill="none" stroke="#FF4500" stroke-width="5" opacity="0.5" />
+</svg>

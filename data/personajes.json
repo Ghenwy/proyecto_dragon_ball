@@ -1,0 +1,12 @@
+﻿[
+  {
+    "nombre": "Goku",
+    "raza": "Saiyan",
+    "transformaciones": ["Kaio-Ken", "SSJ", "SSJ2", "SSJ3", "SSG", "SSGSS", "Ultra Instinct"]
+  },
+  {
+    "nombre": "Vegeta",
+    "raza": "Saiyan",
+    "transformaciones": ["SSJ", "SSJ2", "SSG", "SSGSS", "Ultra Ego"]
+  }
+]

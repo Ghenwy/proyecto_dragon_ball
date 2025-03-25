@@ -1,0 +1,221 @@
+/* Estilos globales para todas las páginas de Dragon Ball FanPage */
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #0D0D0D 0%, #1a1a1a 100%);
+  color: #FFFFFF;
+  position: relative;
+  overflow-x: hidden;
+}
+
+header {
+  background: linear-gradient(135deg, #FF6B00 0%, #FF9500 100%);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 2rem;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-bottom: 3px solid #00BFFF;
+}
+
+header h1 {
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+  50% { text-shadow: 2px 2px 15px rgba(255, 107, 0, 0.8); }
+  100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+}
+
+nav {
+  background: linear-gradient(to right, #1A1A1A, #2A2A2A);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin: 0;
+}
+
+nav a {
+  color: #00BFFF;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+nav a:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 107, 0, 0.7);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #FF6B00;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav a:hover::after {
+  width: 80%;
+}
+
+/* Estilos para tarjetas */
+.card {
+  background: rgba(26, 26, 26, 0.8);
+  border: 2px solid #FF6B00;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(255, 107, 0, 0.6), 0 0 30px rgba(0, 191, 255, 0.3);
+}
+
+.card h3 {
+  color: #00BFFF;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para imágenes */
+img {
+  max-width: 100%;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.6);
+}
+
+/* Estilos para botones */
+.btn {
+  background: linear-gradient(135deg, #00BFFF 0%, #0080FF 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #FF6B00 0%, #FF9500 100%);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para efectos de scroll */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF6B00, #00BFFF);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #FF9500, #00DFFF);
+}
+
+/* Estilos para efectos de selección de texto */
+::selection {
+  background-color: rgba(255, 107, 0, 0.7);
+  color: white;
+}
+
+/* Animaciones globales */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    gap: 0.5rem;
+  }
+  
+  nav a {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav a {
+    width: 80%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}

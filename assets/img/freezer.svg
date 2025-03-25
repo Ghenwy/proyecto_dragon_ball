@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <style>
+    .body { fill: #FFFFFF; }
+    .purple { fill: #800080; }
+    .black { fill: #000000; }
+    .outline { fill: none; stroke: #000; stroke-width: 3; }
+  </style>
+  <g id="freezer">
+    <ellipse class="body" cx="250" cy="200" rx="120" ry="130"/>
+    <path class="purple" d="M250 80 C300 80, 330 100, 340 140 C350 120, 370 110, 380 130 C390 110, 410 120, 400 150 C420 140, 430 160, 410 180 C430 190, 420 220, 390 210 C380 240, 350 260, 320 250 C310 270, 280 280, 250 270 C220 280, 190 270, 180 250 C150 260, 120 240, 110 210 C80 220, 70 190, 90 180 C70 160, 80 140, 100 150 C90 120, 110 110, 120 130 C130 110, 150 120, 160 140 C170 100, 200 80, 250 80Z"/>
+    <path class="purple" d="M180 270 L180 400 L320 400 L320 270 C290 290, 210 290, 180 270Z"/>
+    <path class="black" d="M200 320 L300 320 L300 370 L200 370 Z"/>
+    <circle class="black" cx="210" cy="200" r="10"/>
+    <circle class="black" cx="290" cy="200" r="10"/>
+    <path class="outline" d="M230 240 C240 250, 260 250, 270 240"/>
+  </g>
+</svg>

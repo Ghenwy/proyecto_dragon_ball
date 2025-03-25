@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <style>
+    .hair { fill: #000000; }
+    .skin { fill: #FFD6B1; }
+    .gi { fill: #FF6B00; }
+    .gi-blue { fill: #3689FF; }
+    .outline { fill: none; stroke: #000; stroke-width: 3; }
+  </style>
+  <g id="gohan">
+    <ellipse class="skin" cx="250" cy="200" rx="120" ry="130"/>
+    <path class="hair" d="M250 80 C300 80, 330 120, 340 160 C350 140, 370 130, 380 150 C390 130, 410 140, 400 170 C420 160, 430 180, 410 200 C430 210, 420 240, 390 230 C380 260, 350 280, 320 270 C310 290, 280 300, 250 290 C220 300, 190 290, 180 270 C150 280, 120 260, 110 230 C80 240, 70 210, 90 200 C70 180, 80 160, 100 170 C90 140, 110 130, 120 150 C130 130, 150 140, 160 160 C170 120, 200 80, 250 80Z"/>
+    <path class="gi" d="M180 270 L180 400 L320 400 L320 270 C290 290, 210 290, 180 270Z"/>
+    <path class="gi-blue" d="M200 320 L300 320 L300 370 L200 370 Z"/>
+    <circle class="outline" cx="210" cy="200" r="10"/>
+    <circle class="outline" cx="290" cy="200" r="10"/>
+    <path class="outline" d="M230 230 C240 240, 260 240, 270 230"/>
+  </g>
+</svg>
