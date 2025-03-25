@@ -136,7 +136,7 @@ main::before {
     transform: translatey(0px);
   }
   50% {
-    transform: translatey(-20px) scale(1.05); /* Increased movement and added scaling */
+    transform: translatey(-30px) scale(1.1); /* Further increased movement and scaling */
   }
   100% {
     transform: translatey(0px);
