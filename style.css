@@ -123,7 +123,7 @@ main::before {
   border-radius: 20px;
   margin-bottom: 2rem;
   transition: all 0.5s ease;
-  animation: float 4s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite; /* Reduced duration for faster animation */
   filter: drop-shadow(0 0 15px rgba(255, 107, 0, 0.7));
 }
 
@@ -136,7 +136,7 @@ main::before {
     transform: translatey(0px);
   }
   50% {
-    transform: translatey(-30px) scale(1.1); /* Further increased movement and scaling */
+    transform: translatey(-40px) scale(1.15); /* Further increased movement and scaling */
   }
   100% {
     transform: translatey(0px);
