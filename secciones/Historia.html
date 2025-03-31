@@ -9,29 +9,137 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    .history-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .timeline-container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 2rem;
-      gap: 2rem;
       animation: fadeIn 1s ease-out;
     }
     
-    .history-card {
-      background: #1a1a1a;
-      border: 2px solid #ff6600;
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background: linear-gradient(to bottom, #FF6B00, #00BFFF);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
       border-radius: 10px;
-      width: 300px;
-      padding: 1rem;
-      box-shadow: 0 0 20px #ff6600;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -12px;
+      background-color: #00BFFF;
+      border: 3px solid #FF6B00;
+      border-radius: 50%;
+      z-index: 1;
+      top: 15px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -12px;
+    }
+    
+    .timeline-content {
+      padding: 20px 30px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 40px rgba(0, 191, 255, 0.4);
+    }
+    
+    .history-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 12px 40px rgba(0, 191, 255, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+      animation: pulse 1.5s ease infinite;
+    }
+    
+    .history-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #FF6B00, #00BFFF, #FF6B00);
+      z-index: -1;
+      border-radius: 18px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      background-size: 200% 200%;
+      animation: gradient 3s ease infinite;
+    }
+    
+    .history-card:hover::before {
+      opacity: 0.7;
+      animation: rotate 3s linear infinite;
     }
     .history-card h2 {
       color: #00bfff;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      text-align: center;
     }
     .history-card p {
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      line-height: 1.6;
     }
     .btn {
       background: #00bfff;
@@ -41,6 +149,14 @@
       font-weight: bold;
       cursor: pointer;
       border-radius: 5px;
+      display: block;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
     }
     .modal {
       display: none;
@@ -86,26 +202,43 @@
     </ul>
   </nav>
   <script src="../script.js"></script>
-  <div class="history-container">
-    <div class="history-card">
-      <h2>Dragon Ball y Dragon Ball Z</h2>
-      <p>Desde el origen de Goku hasta las épicas batallas contra Freezer, Cell y Majin Buu.</p>
-      <button class="btn" onclick="openModal('dragonball_dbz')">Ver más</button>
-    </div>
-    <div class="history-card">
-      <h2>Películas de Dragon Ball Z</h2>
-      <p>Historias alternas con villanos como Broly, Janemba, Bojack y Cooler.</p>
-      <button class="btn" onclick="openModal('peliculas')">Ver más</button>
-    </div>
-    <div class="history-card">
-      <h2>Dragon Ball GT</h2>
-      <p>Una continuación no canónica con Goku niño y enemigos como Baby y los dragones malignos.</p>
-      <button class="btn" onclick="openModal('gt')">Ver más</button>
-    </div>
-    <div class="history-card">
-      <h2>Dragon Ball Super</h2>
-      <p>El regreso de Freezer, los dioses de la destrucción, Broly, el Ultra Instinto y las nuevas sagas del manga.</p>
-      <button class="btn" onclick="openModal('super')">Ver más</button>
+  <div class="timeline-container">
+    <div class="timeline">
+      <div class="timeline-item" onclick="openModal('dragonball_dbz')">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Dragon Ball</h3>
+          <p>1986-1989</p>
+        </div>
+      </div>
+      <div class="timeline-item" onclick="openModal('dragonball_dbz')">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Dragon Ball Z</h3>
+          <p>1989-1996</p>
+        </div>
+      </div>
+      <div class="timeline-item" onclick="openModal('gt')">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Dragon Ball GT</h3>
+          <p>1996-1997</p>
+        </div>
+      </div>
+      <div class="timeline-item" onclick="openModal('super')">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Dragon Ball Super</h3>
+          <p>2015-Presente</p>
+        </div>
+      </div>
+      <div class="timeline-item" onclick="openModal('daima')">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Dragon Ball Daima</h3>
+          <p>2024-Presente</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -158,14 +291,25 @@
       super: `<h2>Dragon Ball Super</h2>
       <p>Tras la derrota de Buu, Goku conoce a Beerus, el Dios de la Destrucción, y alcanza el Super Saiyan God. Freezer regresa con forma dorada. Luego, se celebra el Torneo de los Universos. Goku alcanza el Ultra Instinto al enfrentarse a Jiren. Broly reaparece con nuevo origen en la película canon. En el manga, aparecen villanos como Moro, un hechicero que consume energía, y Granolah, el último superviviente de una raza aniquilada por los Saiyans.</p>
       <p>Super ha expandido el universo de Dragon Ball, introduciendo nuevos personajes y conceptos que han revitalizado la franquicia. Con el manga aún en emisión, los fans esperan ansiosos las nuevas aventuras de Goku y sus amigos.</p>
-      <p>La serie ha sido elogiada por su capacidad para mantener la esencia de Dragon Ball mientras introduce nuevas ideas y personajes. El Ultra Instinto, en particular, ha sido una de las transformaciones más populares y visualmente impresionantes.</p>`
+      <p>La serie ha sido elogiada por su capacidad para mantener la esencia de Dragon Ball mientras introduce nuevas ideas y personajes. El Ultra Instinto, en particular, ha sido una de las transformaciones más populares y visualmente impresionantes.</p>`,
+      
+      daima: `<h2>Dragon Ball Daima</h2>
+      <p>Dragon Ball Daima es la nueva serie anunciada en 2023 que se estrenará en 2024. La historia sigue a Goku y sus amigos que misteriosamente se convierten en niños debido a un complot malvado. Para recuperar su forma original, deberán embarcarse en una aventura a través de nuevos mundos nunca antes vistos en el universo Dragon Ball.</p>
+      <p>Esta serie marca el regreso de Akira Toriyama con un involucramiento más directo en la creación de la historia y diseños de personajes. Promete combinar elementos clásicos de Dragon Ball con nuevas ideas innovadoras.</p>
+      <p>Curiosidad: El título "Daima" puede interpretarse como "Gran Demonio" o "Gran Mal", sugiriendo que la serie explorará aspectos más oscuros del universo Dragon Ball mientras mantiene su esencia característica.</p>`
     };
   
     function openModal(key) {
       const modal = document.getElementById('videoModal');
       const modalText = document.getElementById('modalText');
-      modalText.innerHTML = modalContent[key];
-      modal.style.display = 'flex';
+      
+      // Verificar si la clave existe en modalContent
+      if (modalContent[key]) {
+        modalText.innerHTML = modalContent[key];
+        modal.style.display = 'flex';
+      } else {
+        console.error('Modal content not found for key:', key);
+      }
     }
   
     function closeModal() {

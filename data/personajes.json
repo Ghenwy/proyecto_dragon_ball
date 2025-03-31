@@ -1,12 +1,80 @@
 ﻿[
   {
+    "id": 1,
     "nombre": "Goku",
     "raza": "Saiyan",
-    "transformaciones": ["Kaio-Ken", "SSJ", "SSJ2", "SSJ3", "SSG", "SSGSS", "Ultra Instinct"]
+    "descripcion": "El protagonista principal, conocido por su espíritu indomable y su constante búsqueda de superación.",
+    "imagen": "../assets/img/goku.png",
+    "transformaciones": ["Kaio-Ken", "Super Saiyan", "Super Saiyan 2", "Super Saiyan 3", "Super Saiyan Dios", "Super Saiyan Blue", "Ultra Instinto"],
+    "habilidades": ["Kamehameha", "Teletransportación", "Genkidama"],
+    "aliados": ["Vegeta", "Piccolo", "Krillin"],
+    "enemigos": ["Freezer", "Cell", "Majin Buu"]
   },
   {
+    "id": 2,
     "nombre": "Vegeta",
     "raza": "Saiyan",
-    "transformaciones": ["SSJ", "SSJ2", "SSG", "SSGSS", "Ultra Ego"]
+    "descripcion": "El orgulloso príncipe de los Saiyans y eterno rival de Goku.",
+    "imagen": "../assets/img/vegeta.png",
+    "transformaciones": ["Super Saiyan", "Super Saiyan 2", "Super Saiyan Dios", "Super Saiyan Blue", "Ultra Ego"],
+    "habilidades": ["Final Flash", "Big Bang Attack", "Galick Ho"],
+    "aliados": ["Goku", "Bulma", "Trunks"],
+    "enemigos": ["Freezer", "Cell", "Majin Buu"]
+  },
+  {
+    "id": 3,
+    "nombre": "Gohan",
+    "raza": "Híbrido Saiyan-Humano",
+    "descripcion": "Hijo de Goku, un guerrero con un potencial oculto inmenso.",
+    "imagen": "../assets/img/gohan.png",
+    "transformaciones": ["Super Saiyan", "Super Saiyan 2", "Estado Místico", "Bestia"]
+  },
+  {
+    "id": 4,
+    "nombre": "Piccolo",
+    "raza": "Namekiano",
+    "descripcion": "Antiguo enemigo y ahora aliado fundamental de los Guerreros Z.",
+    "imagen": "../assets/img/piccolo.png",
+    "transformaciones": ["Potencial Desatado", "Orange Piccolo"]
+  },
+  {
+    "id": 5,
+    "nombre": "Krillin",
+    "raza": "Humano",
+    "descripcion": "El mejor amigo de Goku y uno de los humanos más fuertes.",
+    "imagen": "../assets/img/krillin.png",
+    "transformaciones": []
+  },
+  {
+    "id": 6,
+    "nombre": "Trunks (Futuro)",
+    "raza": "Híbrido Saiyan-Humano",
+    "descripcion": "Hijo de Vegeta venido del futuro para advertir sobre una terrible amenaza.",
+    "imagen": "../assets/img/trunks_futuro.png",
+    "transformaciones": ["Super Saiyan", "Super Saiyan 2", "Super Saiyan Rage"]
+  },
+  {
+    "id": 7,
+    "nombre": "Freezer",
+    "raza": "Raza de Freezer",
+    "descripcion": "Uno de los villanos más icónicos y emperador del universo.",
+    "imagen": "../assets/img/freezer.png",
+    "transformaciones": ["Forma Final", "Golden Freezer", "Black Freezer"]
+  },
+  {
+    "id": 8,
+    "nombre": "Cell",
+    "raza": "Bio-Androide",
+    "descripcion": "Creación definitiva del Dr. Gero, con células de los mejores guerreros.",
+    "imagen": "../assets/img/cell.png",
+    "transformaciones": ["Forma Imperfecta", "Forma Semi-Perfecta", "Forma Perfecta", "Super Perfecto"]
+  },
+  {
+    "id": 9,
+    "nombre": "Majin Buu",
+    "raza": "Demonio",
+    "descripcion": "Una antigua y poderosa criatura mágica con múltiples formas.",
+    "imagen": "../assets/img/majin_buu.png",
+    "transformaciones": ["Forma Oscura", "Forma Oscura 2", "Forma Oscura 3", "Forma Oscura 4"]  
   }
 ]

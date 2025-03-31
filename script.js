@@ -9,7 +9,75 @@
   
   // Añadir efecto de aparición gradual a los elementos principales
   animateMainElements();
+  
+  // Mostrar personajes
+  displayCharacters();
+  
+  // Añadir funcionalidad de búsqueda
+  setupSearch();
 });
+
+// Función para mostrar los personajes
+function displayCharacters(characters = personajes) {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  
+  characters.forEach(character => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    
+    card.innerHTML = `
+      <div class="card-content">
+        <img src="${character.imagen}" alt="${character.nombre}">
+        <h3>${character.nombre}</h3>
+        <span class="raza">${character.raza}</span>
+        <h4>Transformaciones:</h4>
+        <ul>
+          ${character.transformaciones.map(t => `<li>${t}</li>`).join('')}
+        </ul>
+        <h4>Curiosidades:</h4>
+        <ul>
+          ${character.curiosidades.map(c => `<li>${c}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+    
+    grid.appendChild(card);
+  });
+}
+
+// Función para configurar la búsqueda
+function setupSearch() {
+  const searchInput = document.createElement('input');
+  searchInput.type = 'text';
+  searchInput.placeholder = 'Buscar personaje...';
+  searchInput.id = 'search-input';
+  searchInput.style.cssText = `
+    padding: 0.8rem 1.2rem;
+    margin: 1rem auto;
+    display: block;
+    width: 80%;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 30px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  `;
+  
+  searchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const filtered = personajes.filter(p => 
+      p.nombre.toLowerCase().includes(searchTerm) || 
+      p.raza.toLowerCase().includes(searchTerm)
+    );
+    displayCharacters(filtered);
+  });
+  
+  document.querySelector('main').prepend(searchInput);
+}
 
 // Función para crear partículas de energía en el fondo
 function createEnergyParticles() {

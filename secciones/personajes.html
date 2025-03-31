@@ -10,36 +10,47 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     .personajes-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.5rem;
       padding: 2rem;
       animation: fadeIn 1s ease-out;
     }
     
     .card {
-      width: 280px;
+      width: 100%;
       overflow: hidden;
       position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 40px rgba(0, 191, 255, 0.4);
     }
     
     .card::before {
       content: '';
       position: absolute;
-      top: -5px;
-      left: -5px;
-      right: -5px;
-      bottom: -5px;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
       background: linear-gradient(45deg, #FF6B00, #00BFFF, #FF6B00);
-      z-index: -2;
+      z-index: -1;
       border-radius: 18px;
       opacity: 0;
       transition: opacity 0.5s ease;
     }
     
     .card:hover::before {
-      opacity: 1;
+      opacity: 0.7;
       animation: rotate 3s linear infinite;
     }
     
@@ -48,8 +59,13 @@
       100% { filter: hue-rotate(360deg); }
     }
     
+    .card-content {
+      padding: 1.5rem;
+    }
+    
     .card img {
       height: 280px;
+      width: 100%;
       object-fit: contain;
       display: block;
       margin: 0 auto 20px;
@@ -57,20 +73,44 @@
     }
     
     .card:hover img {
-      transform: scale(1.08);
-      filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.7));
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.8));
+    }
+    
+    .card h3 {
+      color: #FF6B00;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      text-align: center;
     }
     
     .card ul li::before {
       content: "⚡ ";
-      color: #FF6B00;
+      color: #00BFFF;
     }
     
     .card ul {
       list-style: none;
       padding-left: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-align: left;
+      margin-bottom: 1rem;
+    }
+    
+    .card .raza {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      background: rgba(0, 191, 255, 0.2);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .personajes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
     }
   </style>
 </head>

@@ -19,19 +19,46 @@
     }
     
     .saga-card {
+      width: 100%;
+      max-width: 350px;
+      min-height: 400px;
+      overflow: hidden;
+      position: relative;
       background: rgba(26, 26, 26, 0.8);
-      border: 2px solid #ff6600;
-      border-radius: 15px;
-      width: 300px;
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 2px solid var(--primary);
+      box-shadow: 0 8px 32px rgba(255, 107, 0, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
       padding: 1.5rem;
-      box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      backdrop-filter: blur(5px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     
     .saga-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(255, 107, 0, 0.6), 0 0 30px rgba(0, 191, 255, 0.3);
+      box-shadow: 0 12px 40px rgba(0, 191, 255, 0.4);
+    }
+    
+    .saga-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #FF6B00, #00BFFF, #FF6B00);
+      z-index: -1;
+      border-radius: 18px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .saga-card:hover::before {
+      opacity: 0.7;
+      animation: rotate 3s linear infinite;
     }
     
     .saga-card h2 {
@@ -88,11 +115,56 @@
     .modal-content {
       width: 90%;
       max-width: 800px;
-      background: #111;
-      padding: 1rem;
-      border-radius: 10px;
+      background: rgba(26, 26, 26, 0.95);
+      padding: 2rem;
+      border-radius: 15px;
       text-align: left;
       color: #fff;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 30px rgba(255, 107, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 0.5s ease-out;
+      backdrop-filter: blur(10px);
+    }
+    
+    .modal-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+    
+    .modal-content h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .modal-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), transparent);
+    }
+    
+    .modal-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    .modal-content strong {
+      color: var(--secondary);
     }
     .close {
       position: absolute;
@@ -119,6 +191,7 @@
   </nav>
   <script src="../script.js"></script>
   <div class="sagas-container">
+
     <div class="saga-card">
       <h2>Dragon Ball</h2>
       <p>La historia comienza con Goku de niño conociendo a Bulma. Participa en varios Torneos de Artes Marciales, enfrenta a la Patrulla Roja y a Piccolo Daimaō. Termina cuando Goku vence a Piccolo Jr. en el torneo.</p>
@@ -178,6 +251,15 @@
       </ul>
       <button class="btn" onclick="openModal('super')">Ver más</button>
     </div>
+    <div class="saga-card">
+      <h2>Dragon Ball Daima</h2>
+      <p>La nueva serie anunciada para 2024 donde Goku y sus amigos se convierten en niños debido a un complot malvado. Deberán embarcarse en una aventura a través de nuevos mundos para recuperar su forma original.</p>
+      <ul>
+        <li>Transformación en niños</li>
+        <li>Nuevos mundos</li>
+        <li>Involucramiento directo de Toriyama</li>
+      </ul>
+    </div>
   </div>
 
   <div id="videoModal" class="modal">
@@ -189,17 +271,73 @@
 
   <script>
     const modalContent = {
-      dragonball: `<h2>Dragon Ball</h2>
-      <p>La saga de Dragon Ball comienza con el encuentro entre Goku, un niño con cola de mono, y Bulma, una joven en búsqueda de las Esferas del Dragón. A partir de ahí, Goku vive múltiples aventuras: derrota al ejército de la Patrulla Roja, participa en varios Torneos de Artes Marciales donde conoce a personajes clave como Krilin, Yamcha y Ten Shin Han. El clímax llega con el enfrentamiento contra Piccolo Daimaō y posteriormente su hijo, Piccolo Jr., a quien derrota en el Torneo Mundial de Artes Marciales, consolidándose como el mejor luchador del mundo.</p>
-      <p><strong>Curiosidad:</strong> El tono general es más cómico e infantil, con combates menos destructivos que en sus secuelas. Fue Toriyama quien transformó el tono de la serie en Dragon Ball Z.</p>`,
+      dragonball: `<div class="modal-saga">
+        <h2>Dragon Ball</h2>
+        <div class="modal-grid">
+          <div class="modal-content-text">
+            <p>La saga original sigue las aventuras de Goku desde su infancia, donde conoce a Bulma en su búsqueda de las Esferas del Dragón. A lo largo de la serie, Goku:</p>
+            <ul>
+              <li>Se entrena con el Maestro Roshi</li>
+              <li>Participa en 3 Torneos de Artes Marciales</li>
+              <li>Derrota a la Patrulla Roja</li>
+              <li>Enfrenta al malvado Piccolo Daimaō</li>
+              <li>Se corona campeón mundial venciendo a Piccolo Jr.</li>
+            </ul>
+            <p><strong>Datos clave:</strong> 153 episodios (1986-1989). Adaptación del manga de Akira Toriyama. Introdujo técnicas icónicas como el Kamehameha.</p>
+            <p><strong>Curiosidad:</strong> Originalmente tenía un tono más cómico y de aventura, evolucionando hacia acción seria en DBZ.</p>
+          </div>
+        </div>
+      </div>`,
 
-      dbz: `<h2>Dragon Ball Z</h2>
-      <p>Inicia cuando Goku se entera de que es un Saiyan llamado Kakarotto. Enfrenta a Raditz sacrificando su vida. Vegeta y Nappa llegan a la Tierra y Goku vuelve tras entrenar en el Otro Mundo. Posteriormente viajan a Namek, donde luchan contra Freezer, quien destruyó su planeta natal. Goku se transforma en Super Saiyan. Después aparecen los Androides y Cell, que es derrotado por Gohan. La saga culmina con Majin Buu, una amenaza mágica que es finalmente destruido por Goku usando la Genkidama con la energía de la humanidad.</p>
-      <p><strong>Curiosidad:</strong> El final del manga y anime coincide, pero hay diferencias menores en la duración de las peleas y contenido de relleno como la saga de Garlic Jr.</p>`,
+      dbz: `<div class="modal-saga">
+        <h2>Dragon Ball Z</h2>
+        <div class="modal-grid">
+          <div class="modal-content-text">
+            <p>La serie que popularizó Dragon Ball mundialmente, dividida en 4 grandes arcos:</p>
+            <ol>
+              <li><strong>Saga Saiyan:</strong> Goku descubre su origen alienígena y sacrifica su vida contra Raditz. Vegeta y Nappa llegan a la Tierra.</li>
+              <li><strong>Saga Freezer:</strong> Viaje a Namek, aparición de Super Saiyan. Goku vence a Freezer tras batalla épica.</li>
+              <li><strong>Saga Cell:</strong> Androides del futuro, Gohan alcanza Super Saiyan 2 y derrota a Cell.</li>
+              <li><strong>Saga Majin Buu:</strong> La amenaza mágica más poderosa. Fusiones, Super Saiyan 3 y Genkidama final.</li>
+            </ol>
+            <p><strong>Datos clave:</strong> 291 episodios (1989-1996). Introdujo transformaciones legendarias y batallas intergalácticas.</p>
+            <p><strong>Curiosidad:</strong> El doblaje occidental alteró diálogos y música, creando versiones muy diferentes.</p>
+          </div>
+        </div>
+      </div>`,
 
-      peliculas: `<h2>Películas de Dragon Ball Z</h2>
-      <p>Las películas de DBZ no siguen el canon oficial, pero presentan enemigos memorables. Entre ellas están las tres apariciones de Broly, el regreso de Cooler (hermano de Freezer), Bojack el conquistador galáctico, Janemba el demonio del infierno, y Tapion con su ocarina mágica. Estas películas tienen tramas cortas y combates espectaculares, donde los héroes suelen salvar el mundo en eventos autoconclusivos.</p>
-      <p><strong>Curiosidad:</strong> Aunque no son canon, muchos fans consideran a Broly un personaje icónico. El nuevo Broly en Dragon Ball Super sí es oficial.</p>`,
+      peliculas: `<div class="modal-saga">
+        <h2>Películas de Dragon Ball Z</h2>
+        <div class="modal-grid">
+          <div class="modal-content-text">
+            <p>17 películas no canónicas con historias alternativas:</p>
+            <div class="movie-grid">
+              <div>
+                <h3>Clásicas (1-13):</h3>
+                <ul>
+                  <li>La Leyenda de Shenlong</li>
+                  <li>El Hombre Más Fuerte</li>
+                  <li>La Batalla Más Grande</li>
+                  <li>El Super Guerrero</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Especiales:</h3>
+                <ul>
+                  <li>Bardock: El Padre de Goku</li>
+                  <li>La Historia de Trunks</li>
+                  <li>El Plan para Erradicar a los Saiyans</li>
+                </ul>
+              </div>
+            </div>
+            <p><strong>Datos clave:</strong> 1986-2015. Broly apareció en 3 películas antes de ser canonizado en DBS.</p>
+            <p><strong>Curiosidad:</strong> Cooler y Janemba son villanos exclusivos de películas con diseños muy populares.</p>
+          </div>
+          <div class="modal-content-img">
+            <img src="../assets/img/broly.png" alt="Películas DBZ" />
+          </div>
+        </div>
+      </div>`,
 
       gt: `<h2>Dragon Ball GT</h2>
       <p>Dragon Ball GT comienza cuando Goku es convertido en niño por el deseo accidental de Pilaf. Viaja por el espacio con Pan y Trunks en busca de las Esferas de Dragón Oscuras. Al regresar, se enfrenta a Baby, un tsufur que controla cuerpos y desea venganza contra los Saiyans. Luego aparece Super C-17, fusión de dos androides. Finalmente, los Dragones Oscuros nacen de los deseos acumulados. Goku derrota al último, Omega Shenron, y se despide viajando con Shenron.</p>

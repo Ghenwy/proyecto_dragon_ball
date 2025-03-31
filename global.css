@@ -8,6 +8,38 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+  
+  :root {
+    --primary: #FF6B00;
+    --secondary: #00BFFF;
+  }
+}
+
+:root {
+  --primary: #FF5722; /* Naranja intenso */
+  --secondary: #2196F3; /* Azul eléctrico */
+  --accent: #9C27B0; /* Morado vibrante */
+  --dark: #111;
+  --light: #f8f8f8;
+}
+
 header {
   background: linear-gradient(135deg, #FF6B00 0%, #FF9500 100%);
   text-align: center;
@@ -15,19 +47,12 @@ header {
   font-size: 2rem;
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  border-bottom: 3px solid #00BFFF;
+  border-bottom: 3px solid var(--secondary);
 }
 
 header h1 {
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
-  50% { text-shadow: 2px 2px 15px rgba(255, 107, 0, 0.8); }
-  100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
 }
 
 nav {
@@ -50,7 +75,7 @@ nav ul {
 }
 
 nav a {
-  color: #00BFFF;
+  color: var(--secondary);
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s ease;

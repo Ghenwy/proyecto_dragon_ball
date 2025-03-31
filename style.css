@@ -8,19 +8,18 @@
 }
 
 header {
-  background: linear-gradient(135deg, #FF6B00 0%, #FF9500 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   text-align: center;
   padding: 1.5rem;
   font-size: 2rem;
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  border-bottom: 3px solid #00BFFF;
+  border-bottom: 3px solid var(--secondary);
 }
 
 header h1 {
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
